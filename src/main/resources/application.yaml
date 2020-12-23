@@ -1,0 +1,38 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3333/mouensis_authorization?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true
+    username: root
+    password: Root@123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        show_sql: true
+        format_sql: true
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: 192.168.56.101
+    port: 6379
+springdoc:
+  api-docs:
+    swagger-ui:
+      path: /swagger-ui.html
+      display-request-duration: true
+      groups-order: DESC
+      operationsSorter: method
+      disable-swagger-default-url: true
+    show-actuator: true
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
